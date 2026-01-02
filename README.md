@@ -42,4 +42,4 @@ If you want to run the code on your own machine:
 * **`static/`**: Frontend HTML/JS for the simulation controls and canvas animation.
 
 ## 📜 License
-[MIT]
+[MIT](LISENCE)
