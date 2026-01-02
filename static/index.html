@@ -1,0 +1,59 @@
+<!-- static/index.html -->
+<!-- This is the UI layout, extending the double-pendulum reference for n-pendulums. Adds input for n (2-10), dynamic fieldset for per-pendulum params via JS. -->
+<!-- Keeps structure: h1, main-container (controls left, canvas-area right), buttons, loading. Viewport meta for mobile. -->
+<!-- <script> at end loads script.js for dynamics/animation. Assumptions: n changes regenerate fields; defaults for n=2 match reference (m=1, L=1, θ1=90°, θ2=45°). -->
+<!-- No small-angle UI; all in degrees (converted in backend). -->
+
+<!DOCTYPE html>  <!-- Declares HTML5. -->
+<html lang="en">  <!-- English lang for accessibility. -->
+<head>  <!-- Metadata section. -->
+    <meta charset="UTF-8">  <!-- UTF-8 encoding. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Responsive viewport, matches reference. -->
+    <title>N-Pendulum Physics Simulation</title>  <!-- Title, generalized from double. -->
+    <link rel="stylesheet" href="style.css">  <!-- Links CSS. -->
+</head>
+<body>  <!-- Body starts flex layout. -->
+
+    <h1>N-Pendulum Physics Simulation (Animation & Trajectories)</h1>  <!-- Header, updated title. -->
+
+    <div class="main-container">  <!-- Flex container for panels. -->
+        <div class="control-panel">  <!-- Left: controls. -->
+            <fieldset>  <!-- Groups params. -->
+                <legend>Simulation Parameters</legend>  <!-- Legend. -->
+                
+                <div class="form-row">  <!-- Row for n. -->
+                    <label>Number of Pendulums Coupled:</label>  <!-- Label. -->
+                    <input type="number" id="n" value="2" min="2" max="10" step="1">  <!-- n input; limits for perf. -->
+                </div>
+                <div id="params-fields"></div>  <!-- Dynamic fields inserted by JS. -->
+
+            </fieldset>
+
+            <button id="btn-run">Plot & Animate</button>  <!-- Run button, matches reference. -->
+            <div style="display: flex; gap: 10px;">  <!-- Button group. -->
+                <button id="btn-playpause">Play</button>  <!-- Play/pause. -->
+                <button id="btn-reset">Reset</button>  <!-- Reset to t=0. -->
+            </div>
+            <p class="loading" id="loading-txt">Computing...</p>  <!-- Loading text. -->
+        </div>
+
+        <div class="canvas-area">  <!-- Right: plots. -->
+            <div class="plot-box">  <!-- Trajectory box. -->
+                <div class="plot-title">Trajectory Plot</div>  <!-- Title. -->
+                <img id="traj-img" src="" alt="Run simulation to see trajectories">  <!-- Image placeholder. -->
+            </div>
+
+            <div class="plot-box">  <!-- Animation box. -->
+                <div class="plot-title">Live Animation</div>  <!-- Title. -->
+                <canvas id="anim-canvas" width="400" height="400"></canvas>  <!-- Canvas for rods/masses/trace. -->
+            </div>
+        </div>
+    </div>
+
+    <div class="github">
+        <a href="https://github.com/PBNexus/n-pendulum-rust.git">Github</a>
+    </div>
+
+    <script src="script.js"></script>  <!-- Loads JS at end for DOM ready. -->
+</body>
+</html>
