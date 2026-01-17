@@ -3,7 +3,7 @@
 A high-performance physics engine for simulating N-coupled pendulums, built with Rust and Lagrangian mechanics.
 
 ## 🚀 Live Demo
-**[Click here to view the simulation live](YOUR_DEPLOYED_LINK_HERE)**
+**[Click here to view the simulation live](https://n-pendulum-rust.onrender.com/)**
 
 ## 📖 The Physics
 This project began as a standard double pendulum simulation, but I wanted to push the complexity further.
